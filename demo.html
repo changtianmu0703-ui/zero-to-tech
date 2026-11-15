@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林间空地 — 一个写字的人的自留地</title>
+  <!-- 衬线字体：思源宋体，撑起纸质刊物的气质 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&display=swap" rel="stylesheet">
+  <!-- 样式独立文件 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 顶部阅读进度条（仅阅读文章时生效） -->
+  <div class="progress" id="progress"></div>
+
+  <!-- 刊头 -->
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a class="brand" href="#/">
+        <h1>林间空地</h1>
+        <p class="brand-sub">THE CLEARING · 一个写字的人的自留地</p>
+      </a>
+      <nav class="site-nav">
+        <a href="#/">文章</a>
+        <a href="#about" id="nav-about">关于</a>
+      </nav>
+    </div>
+    <div class="wrap dateline" id="dateline"></div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- 视图一：文章目录 -->
+    <section id="list-view">
+      <div class="filter" id="filter"></div>
+      <div id="entry-list"></div>
+    </section>
+
+    <!-- 视图二：文章阅读 -->
+    <section id="post-view" hidden>
+      <a class="backlink" href="#/">← 返回目录</a>
+      <article>
+        <div class="p-meta" id="post-meta"></div>
+        <h1 id="post-title"></h1>
+        <div class="p-stats" id="post-stats"></div>
+        <div class="post-body" id="post-body"></div>
+        <div class="asterism">⁂</div>
+        <nav class="pager" id="pager"></nav>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- 页脚（"关于"链接的落点） -->
+  <footer id="about">
+    <div class="wrap">
+      <h2>关 于</h2>
+      <p>这里是阿澈的自留地，记录读书、做饭、散步，以及一个普通人把日子过慢一点的努力。所有文字都写于此处，欢迎写信交流。</p>
+      <p class="colophon">© 2026 林间空地 · 本站由三个文件组成——index.html / style.css / script.js，简单，但足够长久。</p>
+    </div>
+  </footer>
+
+  <!-- 脚本独立文件 -->
+  <script src="script.js"></script>
+</body>
+</html>

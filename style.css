@@ -1,0 +1,174 @@
+/* ==========================================================
+   林间空地 · style.css
+   配色：暖米纸底 + 深炭墨字 + 赤陶强调色
+   ========================================================== */
+:root{
+  --paper:    #f7f3ea;
+  --ink:      #29241c;
+  --ink-soft: #7d7466;
+  --accent:   #b4451f;
+  --line:     #e2d9c6;
+  --serif: "Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+}
+*{ box-sizing:border-box; margin:0; padding:0 }
+html{ -webkit-text-size-adjust:100% }
+body{
+  font-family:var(--serif);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.8;
+}
+::selection{ background:var(--accent); color:var(--paper) }
+[hidden]{ display:none !important }
+a{ color:inherit; text-decoration:none }
+button{ font-family:inherit; background:none; border:0; cursor:pointer; color:inherit }
+
+.wrap{ max-width:760px; margin:0 auto; padding:0 24px }
+
+/* ---- 阅读进度条 ---- */
+.progress{
+  position:fixed; top:0; left:0; z-index:99;
+  width:100%; height:2px;
+  background:var(--accent);
+  transform:scaleX(0); transform-origin:0 50%;
+}
+
+/* ---- 刊头 ---- */
+.masthead{ padding-top:52px }
+.masthead-inner{
+  display:flex; justify-content:space-between;
+  align-items:flex-end; gap:24px; flex-wrap:wrap;
+}
+.brand h1{ font-size:42px; font-weight:900; letter-spacing:.14em; line-height:1.2; transition:color .3s }
+.brand:hover h1{ color:var(--accent) }
+.brand-sub{ margin-top:6px; font-size:11px; letter-spacing:.32em; color:var(--ink-soft) }
+.site-nav{ display:flex; gap:28px; padding-bottom:10px }
+.site-nav a{ font-size:15px; letter-spacing:.2em; color:var(--ink-soft); transition:color .25s }
+.site-nav a:hover{ color:var(--accent) }
+.dateline{
+  margin-top:26px; padding-bottom:14px;
+  font-size:12.5px; letter-spacing:.14em; color:var(--ink-soft);
+  border-bottom:3px double var(--ink);   /* 印刷品式的双细线 */
+}
+
+/* ---- 入场动画 ---- */
+@keyframes rise{ from{ opacity:0; transform:translateY(16px) } to{ opacity:1; transform:none } }
+.view-enter{ animation:rise .55s ease both }
+
+/* ---- 标签筛选 ---- */
+.filter{ display:flex; flex-wrap:wrap; gap:6px 26px; padding:40px 0 6px }
+.filter button{
+  font-size:14px; letter-spacing:.12em; color:var(--ink-soft);
+  padding:3px 1px; border-bottom:1px solid transparent;
+  transition:color .25s, border-color .25s;
+}
+.filter button:hover{ color:var(--ink) }
+.filter button.active{ color:var(--accent); border-color:var(--accent) }
+
+/* ---- 文章目录 ---- */
+.entry{
+  padding:38px 0; border-bottom:1px solid var(--line);
+  cursor:pointer; outline-offset:4px;
+  animation:rise .6s ease both;
+  animation-delay:calc(var(--i) * 70ms);   /* 逐条错峰浮现 */
+}
+.entry:focus-visible{ outline:1px solid var(--accent) }
+.entry-head{
+  display:flex; align-items:baseline; gap:12px;
+  font-size:13px; letter-spacing:.14em; color:var(--ink-soft);
+}
+.entry-no{ font-weight:600; transition:color .3s }
+.entry-tag{ color:var(--accent) }
+.entry-mark{
+  margin-left:auto; font-size:11px; letter-spacing:.3em;
+  color:var(--accent); border:1px solid var(--accent);
+  padding:2px 8px 2px 11px;
+}
+.entry-title{
+  font-size:clamp(22px, 3.6vw, 29px); font-weight:600; line-height:1.5;
+  margin:14px 0 12px;
+  text-decoration:underline; text-decoration-color:transparent;
+  text-decoration-thickness:1.5px; text-underline-offset:8px;
+  transition:text-decoration-color .35s;
+}
+.entry.featured .entry-title{ font-size:clamp(27px, 5vw, 38px); font-weight:900 }
+.entry:hover .entry-title,
+.entry:focus-visible .entry-title{ text-decoration-color:var(--accent) }
+.entry:hover .entry-no{ color:var(--accent) }
+.entry-excerpt{ max-width:62ch; font-size:15.5px; color:var(--ink-soft); line-height:1.95 }
+.entry-more{
+  display:inline-flex; align-items:center; gap:6px;
+  margin-top:16px; font-size:13px; letter-spacing:.18em; color:var(--accent);
+}
+.entry-more .arrow{ transition:transform .3s }
+.entry:hover .entry-more .arrow{ transform:translateX(5px) }
+
+/* ---- 阅读视图 ---- */
+.backlink{
+  display:inline-block; margin:44px 0 8px;
+  font-size:13px; letter-spacing:.14em; color:var(--ink-soft);
+  transition:color .25s;
+}
+.backlink:hover{ color:var(--accent) }
+.p-meta{ margin-top:26px; font-size:13px; letter-spacing:.16em; color:var(--ink-soft) }
+.p-meta .entry-tag{ color:var(--accent) }
+#post-title{
+  font-size:clamp(30px, 5.6vw, 44px); font-weight:900;
+  line-height:1.4; margin:16px 0 18px;
+}
+.p-stats{
+  font-size:13px; letter-spacing:.14em; color:var(--ink-soft);
+  padding-bottom:26px; border-bottom:3px double var(--ink);
+}
+.post-body{ padding-top:14px; font-size:17px; line-height:2.05 }
+.post-body p{ margin:1.5em 0 }
+/* 首段首字下沉 */
+.post-body > p:first-of-type::first-letter{
+  float:left;
+  font-size:3.3em; font-weight:900; line-height:1;
+  padding:6px 12px 0 0;
+  color:var(--accent);
+}
+.post-body h2{ font-size:20px; font-weight:600; letter-spacing:.06em; margin:2.2em 0 1em }
+.post-body h2::before{ content:"§"; color:var(--accent); font-weight:400; margin-right:.6em }
+.post-body blockquote{
+  margin:2.2em 0; padding-left:1.4em;
+  border-left:2px solid var(--accent);
+  color:var(--ink-soft); font-size:16px; line-height:2;
+}
+.post-body ul{ margin:1.5em 0 1.5em 1.4em }
+.post-body li{ margin:.7em 0 }
+.post-body li::marker{ color:var(--accent) }
+.asterism{ text-align:center; color:var(--ink-soft); letter-spacing:.6em; margin:3.2em 0 0 }
+
+/* ---- 上一篇 / 下一篇 ---- */
+.pager{
+  display:flex; justify-content:space-between; gap:24px;
+  margin-top:64px; padding-top:30px; border-top:1px solid var(--line);
+}
+.pager-item{ display:block; max-width:48% }
+.pager-item.next{ margin-left:auto; text-align:right }
+.pager-dir{ display:block; font-size:12.5px; letter-spacing:.18em; color:var(--ink-soft) }
+.pager-title{
+  display:block; margin-top:8px;
+  font-size:15.5px; font-weight:600; line-height:1.6;
+  transition:color .25s;
+}
+.pager-item:hover .pager-title{ color:var(--accent) }
+
+/* ---- 页脚 ---- */
+footer{ margin-top:100px; border-top:3px double var(--ink); padding:42px 0 64px }
+footer h2{ font-size:15px; font-weight:600; letter-spacing:.3em; margin-bottom:14px }
+footer p{ max-width:62ch; font-size:14.5px; color:var(--ink-soft); line-height:2 }
+.colophon{ margin-top:30px; font-size:12.5px; letter-spacing:.1em }
+
+/* ---- 响应式 ---- */
+@media (max-width:600px){
+  .brand h1{ font-size:34px }
+  .entry{ padding:30px 0 }
+  .entry-mark{ display:none }
+  .pager{ flex-direction:column; gap:22px }
+  .pager-item{ max-width:100% }
+  .pager-item.next{ text-align:left; margin-left:0 }
+}
