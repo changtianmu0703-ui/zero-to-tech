@@ -2,7 +2,7 @@
 slug: benefits-of-slow
 date: 2026.09.30
 tag: 随想
-title: 关于慢下来的种种好处
+title: 小克教你人生道理
 excerpt: 慢不是效率的反面，而是一种筛选机制：走得慢一点，才知道哪些路值得快。
 ---
 

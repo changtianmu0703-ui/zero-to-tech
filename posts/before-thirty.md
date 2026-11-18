@@ -2,7 +2,7 @@
 slug: before-thirty
 date: 2026.08.25
 tag: 随想
-title: 写在三十岁来临之前
+title: cladue小姐有中年危机了
 excerpt: 还有四十天满三十岁。二十几岁教会我的事，以及想对三十岁说的三句话。
 ---
 
