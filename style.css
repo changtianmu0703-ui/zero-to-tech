@@ -137,6 +137,7 @@ button{ font-family:inherit; background:none; border:0; cursor:pointer; color:in
   border-left:2px solid var(--accent);
   color:var(--ink-soft); font-size:16px; line-height:2;
 }
+.post-body blockquote > p { margin: 0; }
 .post-body ul{ margin:1.5em 0 1.5em 1.4em }
 .post-body li{ margin:.7em 0 }
 .post-body li::marker{ color:var(--accent) }
