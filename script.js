@@ -11,6 +11,7 @@ const SLUGS = [
   'benefits-of-slow',
   'digital-minimalism',
   'before-thirty'
+  'bh'
 ];
 
 /* ---------- 小工具 ---------- */
