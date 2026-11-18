@@ -10,7 +10,7 @@ const SLUGS = [
   'midnight-noodles',
   'benefits-of-slow',
   'digital-minimalism',
-  'before-thirty'
+  'before-thirty',
   'bh'
 ];
 
